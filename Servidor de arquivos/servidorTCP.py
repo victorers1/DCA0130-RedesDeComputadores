@@ -22,9 +22,14 @@ while 1:
     connectionSocket, addr = serverSocket.accept()  # aceita as conexoes dos clientes
     sentence = connectionSocket.recv(1024)  # recebe dados do cliente
     sentence = sentence.decode('utf-8')
-    dateTime = str(time.ctime())  # hora e data do sistema
-    print('Cliente %s fez requisição em %s' %
-          (addr, dateTime))
-    connectionSocket.send(dateTime.encode('utf-8'))
+    if 'obter' in sentence:
+        try:
+            file = open(sentence.split(' ')[1])
+            response = file.read()
+        except:
+            response = 'Arquivo não existe'
+    else:
+        response = 'Comando desconhecido'
+    connectionSocket.send(response.encode('utf-8'))
     connectionSocket.close()  # encerra o socket com o cliente
 serverSocket.close()  # encerra o socket do servidor
