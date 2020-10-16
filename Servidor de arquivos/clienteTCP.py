@@ -17,7 +17,4 @@ clientSocket.connect((serverName, serverPort))  # conecta o socket ao servidor
 
 sentence = input('Digite um comando: ')
 clientSocket.send(sentence.encode('utf-8'))  # envia o texto para o servidor
-modifiedSentence = clientSocket.recv(1024)  # recebe do servidor a resposta
-print('O servidor (\'%s\', %d) respondeu com: %s' %
-      (serverName, serverPort, modifiedSentence.decode('utf-8')))
 clientSocket.close()  # encerramento o socket do cliente
