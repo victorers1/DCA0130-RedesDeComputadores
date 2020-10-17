@@ -30,6 +30,7 @@ while 1:
             response = 'Arquivo não existe'
     else:
         response = 'Comando desconhecido'
+        
     connectionSocket.send(response.encode('utf-8'))
     connectionSocket.close()  # encerra o socket com o cliente
 serverSocket.close()  # encerra o socket do servidor
