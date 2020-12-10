@@ -13,7 +13,7 @@ c = ModbusClient('172.18.66.225', port=502, unit_id=1)
 
 while True:
     if c.is_open():
-        c.write_single_coil(0, 1)
+        c.write_single_coil(0, valvula1)
         c.write_single_coil(1, 1)
         c.write_single_coil(2, 1)
         c.write_single_coil(3, 1)

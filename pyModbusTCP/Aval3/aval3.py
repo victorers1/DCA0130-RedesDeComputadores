@@ -8,22 +8,6 @@ nivelTanque1 = 0.0
 bracoRobotico = 0
 
 
-def on_press(key):
-    global valvula1
-    print("Key pressed: {0}".format(key))
-    try:
-        if key.char == 'v':
-            valvula1 = not valvula1
-            print("valvula1: " + str(valvula1))
-    except:
-        print('caractere especial pressionado')
-
-
-# Create an instance of Listener
-with Listener(on_press=on_press) as listener:
-    listener.join()
-
-
 # auto_open=True, auto_close=True
 server = ModbusServer('127.0.0.1', port=520, no_block=True)
 
